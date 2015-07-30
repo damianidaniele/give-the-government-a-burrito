@@ -1,0 +1,13 @@
+.food-list {
+    list-style: none;
+}
+        
+.food-list__title {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.food-list__img {
+    display: block;
+    margin-bottom: 40px;
+}
