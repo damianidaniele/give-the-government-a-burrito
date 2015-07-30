@@ -3,11 +3,11 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body ng-app="jsCodingTest">
-        <main ng-controller="GiveTheGovernmentABurrito as meals">
-            <h3 ng-if="meals.error" ng-bind="meals.error"></h3>
+        <main ng-controller="GiveTheGovernmentABurrito">
+            <h3 ng-if="error" ng-bind="error"></h3>
 
             <ul class="food-list">
-                <li ng-repeat="meal in meals.packages">
+                <li ng-repeat="meal in packages">
                     <h2 class="food-list__title" ng-bind="meal.name"></h2>
                     <img class="food-list__img" ng-src="{{meal.images[0].medium}}">
                 </li>

@@ -9,19 +9,22 @@ angular.module('jsCodingTest').controller('GiveTheGovernmentABurrito', function(
     // for burritos that can be delivered to the Houses of Parliament in London.
     // The API URL that should be called is:
     // https://api.citypantry.com/packages/search?name=Burrito&postcode=SW1A%200AA
+    var typeOfFood = 'Burrito',
+    	postCode = 'SW1A%200AA';
 
     PackagesFactory
-		.searchPackages( 'Burrito', 'SW1A%200AA' )
+		.searchPackages( typeOfFood, postCode )
     	.success( function ( data ) {
 
-    		this.packages = data.packages;
-
-    	}.bind( this ))
+    		if( data.packages ) {
+    			$scope.packages = data.packages;
+    		}
+    	})
     	.error( function ( err ) {
 
-    		console.log( 'error: ', err ); 
+    		console.err( 'error: ', err ); 
     		if ( err.error ) {
-    			this.error = err.errorTranslation;
+    			$scope.error = err.errorTranslation;
     		}
-    	}.bind( this ));
+    	});
 });
